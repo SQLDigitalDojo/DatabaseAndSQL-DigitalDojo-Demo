@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cerca cliente</title>
+    <link rel="stylesheet" href="stylesheets/mela.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="javascripts/mela.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="header-container">
+            <h1 class="header-text"> <img class="logo-image" src="images/logo.png">Mela Ecommerce Reporting System</h1>
+        </div>
+        <div class="topnav" id="myTopnav">
+            <a href="/">Home</a>
+            <a href="/add">Aggiungi cliente</a>
+            <a href="/search" class="active">Ricerca clienti</a>
+            <a href="javascript:void(0);" class="icon" onclick="updateMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h2 class="header-text">Ricerca:</h2>
+        <div class="search-component">
+
+
+            <input class="form-control" id="searchField" placeholder="Cerca nome o cognome">
+            <br />
+            <button type="submit" class="btn btn-primary" id="search-button">Ricerca</button>
+
+        </div>
+        <h2 class="header-text">Search results</h2>
+        <div class="chart-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Indirizzo</th>
+                        <th scope="col">Username</th>
+                    </tr>
+                </thead>
+                <tbody id="clients-table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
