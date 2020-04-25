@@ -5,17 +5,14 @@ exports.getSales = async function (req, res, callback) {
     console.log("Get sales");
 
     database.getConnection().query("SELECT * FROM vendite.vendita ORDER BY DataVendita DESC LIMIT 100 ; ", function (err, rows) {
-        console.log(err);
-
         res.json(rows);
     })
 }
 
 exports.getSalesChartInfo = async function (req, res, callback) {
     var returnString = "";
-    console.log("Get sales chart info");
-    database.getConnection().query("SELECT SUM(importo) as guadagnoGiorno, DATE(vendite.vendita.DataVendita) as data FROM vendite.pagamenti INNER JOIN vendite.vendita ON vendite.pagamenti.idVendita = vendite.vendita.id group by DATE(vendite.vendita.DataVendita)", function (err, rows) {
-        console.log(err);
+    console.log("Get sales");
+    database.getConnection().query("SELECT SUM(importo) as guadagnoGiorno,  DATE(vendite.vendita.DataVendita) as data FROM vendite.pagamenti INNER JOIN vendite.vendita ON vendite.pagamenti.idVendita = vendite.vendita.id group by DATE(vendite.vendita.DataVendita)", function (err, rows) {
         res.json(rows);
     })
 }
@@ -25,8 +22,6 @@ exports.getSalesDates = async function (req, res, callback) {
     console.log("Get sales");
 
     database.getConnection().query("SELECT DISTINCT DATE(vendite.vendita.DataVendita) as data FROM vendite.pagamenti INNER JOIN vendite.vendita", function (err, rows) {
-        console.log(err);
-
         res.json(rows);
     })
 }
